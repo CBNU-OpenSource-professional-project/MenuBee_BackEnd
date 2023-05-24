@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewPager2AutoScrollActivity">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager2"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="113dp"
+        android:layout_marginTop="252dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="277dp">
+
+    </androidx.viewpager2.widget.ViewPager2>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.DeviceDefault.ProgressBar"
+        android:layout_width="494dp"
+        android:layout_height="471dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="100dp"
+        android:indeterminate="true"
+        android:indeterminateTint="#FF8C00"
+        android:max="100"
+        android:progressTint="#FF8C00" />
+
+
+    <TextView
+        android:id="@+id/text_loading"
+        android:layout_width="259dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="560dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginBottom="112dp"
+        android:fontFamily="@font/bitbit"
+        android:gravity="center"
+        android:text="Loading"
+        android:textColor="#FF8C00"
+        android:textSize="50dp" />
+
+</RelativeLayout>

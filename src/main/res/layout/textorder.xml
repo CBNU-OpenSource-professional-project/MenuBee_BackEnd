@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="#FCF4AB">
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/ordertext" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:background="@drawable/order"
+        android:layout_marginTop="10dp"
+        android:layout_width="130dp"
+        android:layout_height="120dp"
+        android:text="\n\n       음성 주문"
+        android:textSize="13sp"
+        />
+</LinearLayout>
