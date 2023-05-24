@@ -12,6 +12,8 @@ import androidx.viewpager2.widget.ViewPager2;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import menubee_backend.ImageToText;
+
 public class ViewPager2AutoScrollActivity extends AppCompatActivity {
 
     private ViewPager2 viewPager2;
@@ -19,12 +21,17 @@ public class ViewPager2AutoScrollActivity extends AppCompatActivity {
     private Timer timer;
     private ProgressBar progressBar;
     private TextView textView;
+    private static String GptResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_pager2_auto_scroll);
 
+        // OCR 객체 생성
+        ImageToText OcrToGpt=new ImageToText(this);
+        // OCR 시작
+        OcrToGpt.callCloudVision(Camera_capture.getBitmap());
         viewPager2 = findViewById(R.id.viewPager2);
         textView = findViewById(R.id.text_loading);
         progressBar = findViewById(R.id.progressBar);
@@ -119,7 +126,11 @@ public class ViewPager2AutoScrollActivity extends AppCompatActivity {
             public void run() {
                 // ProgressBar 뷰를 숨기고 다음 액티비티를 시작합니다.
                 progressBar.setVisibility(View.GONE);
-                startActivity(new Intent(ViewPager2AutoScrollActivity.this, Cafe.class));
+                Intent CafeActivity=new Intent(ViewPager2AutoScrollActivity.this, Cafe.class);
+                CafeActivity.putExtra("gptResult",GptResult);
+                startActivity(CafeActivity);
+
+
                 // 현재 액티비티를 종료합니다.
                 finish();
             }
@@ -127,6 +138,10 @@ public class ViewPager2AutoScrollActivity extends AppCompatActivity {
 
         // 텍스트를 "Loading..."으로 설정합니다.
 
+    }
+    public static void setGptResult(String result)
+    {
+        GptResult=result;
     }
 }
 

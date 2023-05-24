@@ -115,8 +115,8 @@ public class GetImage extends AppCompatActivity {
                 mMainImage.setImageBitmap(bitmap);
                 Camera_capture.setBitmap(bitmap);
                 // OCR func //
-//                ImageToText img2Text=new ImageToText(mActivity);
-//                img2Text.callCloudVision(bitmap);
+                ImageToText img2Text=new ImageToText(mActivity);
+                img2Text.callCloudVision(bitmap);
 
             } catch (IOException e) {
                 Log.d("Get image", "Image picking failed because " + e.getMessage());
