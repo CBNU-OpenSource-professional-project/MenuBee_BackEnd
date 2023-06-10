@@ -15,21 +15,23 @@ import org.json.JSONException;
 import java.io.IOException;
 
 public class CallGPT extends AppCompatActivity {
-    private static chatgptAPI gptAPI = new chatgptAPI();
+    private static chatgptAPI gptAPI;
     private static String imgResult="";
-    private static EditText GptResult;
-    private static Activity GPTActivity;
+    private EditText GptResult;
+    private Activity GPTActivity;
 
-    static String[] result1;
+    public static String[] resultforGPT;
 
     public CallGPT(Activity activity){
         GPTActivity=activity;
+        gptAPI = new chatgptAPI(); // chatgptAPI 인스턴스 생성
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+    }
 
-        }
     public static void setText(String imgDetail) {
         if (imgDetail == null) {
             return;
@@ -39,10 +41,12 @@ public class CallGPT extends AppCompatActivity {
     }
 
     public static void setGptText() {
+        Log.d("GPT CALL", "setGptText: "+gptAPI);
         new AsyncTask<Void, Void, String>() {
             @Override
             protected String doInBackground(Void... voids) {
                 try {
+                    Log.d("DOINBACKGROUND : ", "doInBackground: "+gptAPI);
                     return gptAPI.getResponse(imgResult);
                 } catch (IOException | JSONException e) {
                     throw new RuntimeException(e);
@@ -50,25 +54,18 @@ public class CallGPT extends AppCompatActivity {
             }
 
             @Override
-
             protected void onPostExecute(String result) { //백그라운드 작업후 호출
-
                 Log.d("CALL GPT EXECUTE", "onPostExecute: "+result);
                 super.onPostExecute(result);
                 if (result != null) {
-                    result1 = result.split("\n");
+                    resultforGPT = result.split("\n");
                     //저장값 확인
-                    for (int i = 0; i < result1.length; i++)
-                        System.out.println("배열 저장 값 : " + result1[i]);
-                }
-                else{
+                    for (int i = 0; i < resultforGPT.length; i++)
+                        System.out.println("배열 저장 값 : " + resultforGPT[i]);
+                } else {
                     Log.d("Else CASE", "FAIELD!!!!!!!!!!!!");
                 }
-
             }
         }.execute();
     }
-
-
-
 }

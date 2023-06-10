@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "294850640977",
+    "project_id": "menubee-551cd",
+    "storage_bucket": "menubee-551cd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:294850640977:android:8698660594077a01390c70",
+        "android_client_info": {
+          "package_name": "com.example.menubee"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBh0tgxm9Vypb7FlE9rGQH0C-LMbjqHG4o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

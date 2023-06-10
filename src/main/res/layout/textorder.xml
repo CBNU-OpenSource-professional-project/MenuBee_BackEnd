@@ -7,17 +7,46 @@
     android:background="#FCF4AB">
 
     <TextView
+        android:id="@+id/orderText"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:fontFamily="@font/bitbit"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:background="@drawable/ordertext" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:background="@drawable/order"
-        android:layout_marginTop="10dp"
-        android:layout_width="130dp"
-        android:layout_height="120dp"
-        android:text="\n\n       음성 주문"
-        android:textSize="13sp"
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/voiceOrder"
+            android:background="@drawable/order"
+            android:layout_marginTop="10dp"
+            android:paddingTop="10dp"
+            android:layout_width="120dp"
+            android:layout_height="110dp"
+            android:text="\n      음성 주문"
+            android:textSize="18sp"
+            android:textColor="#676767"
+            android:fontFamily="@font/bitbit"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/back"
+            android:background="@drawable/order"
+            android:layout_marginTop="10dp"
+            android:paddingTop="10dp"
+            android:layout_width="120dp"
+            android:layout_height="110dp"
+            android:text="\n      돌아가기"
+            android:textSize="18sp"
+            android:textColor="#676767"
+            android:fontFamily="@font/bitbit"
+            />
+    </LinearLayout>
 </LinearLayout>

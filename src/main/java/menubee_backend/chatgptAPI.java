@@ -2,6 +2,8 @@ package menubee_backend;
 
 import static menubee_backend.APIKEYS.ChatGptAPIKEY;
 
+import android.util.Log;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -27,6 +29,7 @@ public class chatgptAPI {
 
     public String getResponse(String prompt) throws IOException, JSONException {
         JSONObject jsonObject = new JSONObject();
+        Log.d("gptRESPONSE", "getResponse: "+jsonObject);
         jsonObject.put("model","text-davinci-003");
         jsonObject.put("prompt", prompt);
         jsonObject.put("max_tokens", 1000);
