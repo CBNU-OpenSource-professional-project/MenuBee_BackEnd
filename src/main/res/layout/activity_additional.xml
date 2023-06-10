@@ -11,15 +11,16 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/line1"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
         android:layout_width="match_parent"
-        android:layout_height="120dp">
+        android:layout_height="140dp">
 
         <ImageView
             android:id="@+id/pol1"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            app:layout_constraintHorizontal_bias="0.350"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="@id/pol2"
@@ -28,20 +29,24 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn1"
-            android:text=""
-            android:layout_width="100dp"
-            android:layout_height="60dp"
+            android:layout_width="130dp"
+            android:layout_height="73dp"
+            android:layout_marginTop="32dp"
             android:background="#00FFFFFF"
-            android:layout_marginTop="25dp"
-            app:layout_constraintHorizontal_bias="0.483"
+            android:text=""
+            android:textSize="23sp"
+            android:textColor="#676767"
+            android:fontFamily="@font/bitbit"
+            app:layout_constraintHorizontal_bias="0.345"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="@id/pol2"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/pol2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            app:layout_constraintHorizontal_bias="0.650"
             app:layout_constraintLeft_toLeftOf="@id/pol1"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -50,11 +55,14 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn2"
             android:text=""
-            android:layout_width="100dp"
-            android:layout_height="60dp"
+            android:textSize="23sp"
+            android:textColor="#676767"
+            android:fontFamily="@font/bitbit"
+            android:layout_width="130dp"
+            android:layout_height="73dp"
+            android:layout_marginTop="32dp"
             android:background="#00FFFFFF"
-            android:layout_marginTop="25dp"
-            app:layout_constraintHorizontal_bias="0.500"
+            app:layout_constraintHorizontal_bias="0.645"
             app:layout_constraintLeft_toLeftOf="@id/pol1"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -64,14 +72,14 @@
         android:id="@+id/line2"
         android:layout_marginTop="-42dp"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="140dp"
         android:gravity="center_horizontal">
 
         <ImageView
             android:id="@+id/pol3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.325"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            app:layout_constraintHorizontal_bias="0.035"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="@id/pol4"
             app:layout_constraintTop_toTopOf="parent"
@@ -80,19 +88,22 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn3"
             android:text=""
-            android:layout_width="110dp"
-            android:layout_height="60dp"
+            android:textSize="23sp"
+            android:textColor="#676767"
+            android:fontFamily="@font/bitbit"
+            android:layout_width="130dp"
+            android:layout_height="73dp"
+            android:layout_marginTop="32dp"
             android:background="#00FFFFFF"
-            android:layout_marginTop="25dp"
-            app:layout_constraintHorizontal_bias="0.320"
+            app:layout_constraintHorizontal_bias="0.050"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="@id/pol4"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/pol4"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -101,10 +112,13 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn4"
             android:text=""
-            android:layout_width="110dp"
-            android:layout_height="60dp"
+            android:textSize="23sp"
+            android:textColor="#676767"
+            android:fontFamily="@font/bitbit"
+            android:layout_width="130dp"
+            android:layout_height="73dp"
+            android:layout_marginTop="32dp"
             android:background="#00FFFFFF"
-            android:layout_marginTop="25dp"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -112,9 +126,9 @@
 
         <ImageView
             android:id="@+id/pol5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.670"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            app:layout_constraintHorizontal_bias="0.965"
             app:srcCompat="@drawable/pol3"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="@id/pol4"
@@ -123,11 +137,14 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn5"
             android:text=""
-            android:layout_width="110dp"
-            android:layout_height="60dp"
+            android:textSize="23sp"
+            android:textColor="#676767"
+            android:fontFamily="@font/bitbit"
+            android:layout_width="130dp"
+            android:layout_height="73dp"
+            android:layout_marginTop="32dp"
             android:background="#00FFFFFF"
-            android:layout_marginTop="25dp"
-            app:layout_constraintHorizontal_bias="0.670"
+            app:layout_constraintHorizontal_bias="0.935"
             app:layout_constraintLeft_toLeftOf="@id/pol4"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -138,12 +155,13 @@
         android:layout_marginTop="-42dp"
         android:gravity="center_horizontal"
         android:layout_width="match_parent"
-        android:layout_height="120dp">
+        android:layout_height="140dp">
 
         <ImageView
             android:id="@+id/pol6"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            app:layout_constraintHorizontal_bias="0.350"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="@id/pol7"
@@ -153,19 +171,23 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn6"
             android:text=""
-            android:layout_width="110dp"
-            android:layout_height="60dp"
+            android:textSize="23sp"
+            android:textColor="#676767"
+            android:fontFamily="@font/bitbit"
+            android:layout_width="130dp"
+            android:layout_height="73dp"
+            android:layout_marginTop="32dp"
             android:background="#00FFFFFF"
-            android:layout_marginTop="25dp"
-            app:layout_constraintHorizontal_bias="0.483"
+            app:layout_constraintHorizontal_bias="0.350"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="@id/pol7"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/pol7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            app:layout_constraintHorizontal_bias="0.650"
             app:layout_constraintLeft_toLeftOf="@id/pol6"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -174,11 +196,14 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn7"
             android:text=""
-            android:layout_width="110dp"
-            android:layout_height="60dp"
+            android:textSize="23sp"
+            android:textColor="#676767"
+            android:fontFamily="@font/bitbit"
+            android:layout_width="130dp"
+            android:layout_height="73dp"
+            android:layout_marginTop="32dp"
             android:background="#00FFFFFF"
-            android:layout_marginTop="25dp"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.645"
             app:layout_constraintLeft_toLeftOf="@id/pol6"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -189,11 +214,11 @@
         android:layout_marginTop="-42dp"
         android:gravity="center_horizontal"
         android:layout_width="match_parent"
-        android:layout_height="120dp">
+        android:layout_height="140dp">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -202,29 +227,59 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn8"
             android:text=""
-            android:layout_width="110dp"
-            android:layout_height="60dp"
+            android:textSize="23sp"
+            android:textColor="#676767"
+            android:fontFamily="@font/bitbit"
+            android:layout_width="130dp"
+            android:layout_height="73dp"
+            android:layout_marginTop="32dp"
             android:background="#00FFFFFF"
-            android:layout_marginTop="25dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <EditText
+        android:id="@+id/reqText"
+        android:text=""
+        android:textSize="20sp"
+        android:textColor="#676767"
+        android:fontFamily="@font/bitbit"
+        android:gravity="center"
         android:layout_marginTop="20dp"
-        android:layout_width="309dp"
-        android:layout_height="55dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
         android:background="@drawable/ordermsg"
         />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:background="@drawable/order"
-        android:layout_marginTop="30dp"
-        android:layout_width="150dp"
-        android:layout_height="165dp"
-        android:text="\n\n      주문하기"
-        android:textSize="15sp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="105dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnReq"
+            android:background="@drawable/order"
+            android:layout_width="100dp"
+            android:layout_height="105dp"
+            android:layout_marginEnd="40dp"
+            android:paddingTop="7dp"
+            android:text="\n     주문하기"
+            android:textSize="18sp"
+            android:textColor="#676767"
+            android:fontFamily="@font/bitbit"
         />
-
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnBack"
+            android:background="@drawable/order"
+            android:layout_width="100dp"
+            android:layout_height="105dp"
+            android:paddingTop="7dp"
+            android:text="\n     돌아가기"
+            android:textSize="18sp"
+            android:textColor="#676767"
+            android:fontFamily="@font/bitbit" />
+    </LinearLayout>
 </LinearLayout>

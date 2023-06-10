@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import static menubee_backend.CallGPT.resultforGPT;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -102,6 +104,22 @@ public class ViewPager2AutoScrollActivity extends AppCompatActivity {
                                 textView.setText("Loading....");
                             }
                         });
+
+                        // Check if the GPT result is ready
+                        if (resultforGPT != null) {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    // If the GPT result is ready, hide the progress bar and start the next activity.
+                                    progressBar.setVisibility(View.GONE);
+                                    Intent CafeActivity=new Intent(ViewPager2AutoScrollActivity.this, Cafe.class);
+                                    CafeActivity.putExtra("gptResult", resultforGPT);
+                                    startActivity(CafeActivity);
+                                    finish();
+                                }
+                            });
+                            break;
+                        }
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -116,33 +134,4 @@ public class ViewPager2AutoScrollActivity extends AppCompatActivity {
         // 액티비티가 종료될 때 타이머 취소
         timer.cancel();
     }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        // 일정 시간 동안 ProgressBar 뷰를 표시합니다.
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // ProgressBar 뷰를 숨기고 다음 액티비티를 시작합니다.
-                progressBar.setVisibility(View.GONE);
-                Intent CafeActivity=new Intent(ViewPager2AutoScrollActivity.this, Cafe.class);
-                CafeActivity.putExtra("gptResult",GptResult);
-                startActivity(CafeActivity);
-
-
-                // 현재 액티비티를 종료합니다.
-                finish();
-            }
-        }, 30000);
-
-        // 텍스트를 "Loading..."으로 설정합니다.
-
-    }
-    public static void setGptResult(String result)
-    {
-        GptResult=result;
-    }
 }
-

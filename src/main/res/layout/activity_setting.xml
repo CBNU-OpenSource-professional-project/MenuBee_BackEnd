@@ -1,20 +1,308 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
     tools:context=".Setting">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="148dp"
-        android:layout_height="90dp"
-        android:text="Setting"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.424"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#E1E1E1"
+            android:fontFamily="@font/bitbit"
+            android:padding="10dp"
+            android:text="설정"
+            android:textAlignment="center"
+            android:textSize="45dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/sound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableStart="@drawable/layerlist"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/bitbit"
+                android:text="소리"
+                android:textSize="30dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="144dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/sound_TTL_volum"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/bitbit"
+                    android:paddingTop="10dp"
+                    android:text="출력 음량 조절"
+                    android:textSize="20dp" />
+
+                <SeekBar
+                    android:id="@+id/TTL_volum_seekBar"
+                    android:layout_width="500dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:max="100"
+                    android:paddingTop="10dp"
+                    android:progress="50" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp">
+
+                <TextView
+                    android:id="@+id/sound_TTS_change"
+                    android:layout_width="116dp"
+                    android:layout_height="48dp"
+                    android:fontFamily="@font/bitbit"
+                    android:paddingTop="10dp"
+                    android:text="출력 음성 변경"
+                    android:textSize="20dp" />
+
+                <Spinner
+                    android:id="@+id/sound_TTL_voice_change"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/ttlvoicespinner"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/sound_TTS_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:fontFamily="@font/bitbit"
+                    android:paddingTop="10dp"
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:text="출력 음성 속도 변경" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="230dp"
+                    android:orientation="horizontal"
+                    android:layout_height="48dp"
+                    android:layout_weight="1" >
+
+                    <RadioButton
+                        android:id="@+id/radioButton"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="67dp"
+                        android:layout_height="wrap_content"
+                        android:text="0.75x" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton2"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="67dp"
+                        android:layout_height="wrap_content"
+                        android:text="1.0x" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton3"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="67dp"
+                        android:layout_height="wrap_content"
+                        android:text="1.25x" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="30dp">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableStart="@drawable/layerlist2"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/bitbit"
+                android:text="메뉴판"
+                android:textSize="30dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/menu_background_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/bitbit"
+                    android:paddingTop="10dp"
+                    android:text="메뉴판 배경색 변경"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/displayColor"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="80dp"
+                    android:background="@drawable/home_iconshape"
+                    android:backgroundTint="#E1E1E1"
+                    android:paddingTop="13dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/colorPicker_button"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/colorPicker_button" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/colorPicker_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/color_choicebtn"
+                    android:fontFamily="@font/bitbit"
+                    android:text="색상 선택"
+                    android:textColor="#676767"
+                    app:layout_constraintStart_toEndOf="@+id/displayColor"
+                    app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/bitbit"
+                    android:paddingTop="10dp"
+                    android:text="메뉴판 글자색 변겅"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/Menu_Text_Color"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="80dp"
+                    android:background="@drawable/home_iconshape"
+                    android:backgroundTint="#E1E1E1"
+                    android:paddingTop="13dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/colorPicker_button"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/colorPicker_button" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/colorPicker_button2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="32dp"
+                    android:background="@drawable/color_choicebtn"
+                    android:fontFamily="@font/bitbit"
+                    android:text="색상 선택"
+                    android:textColor="#676767"
+                    app:layout_constraintStart_toEndOf="@+id/displayColor"
+                    app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableStart="@drawable/layerlist3"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/bitbit"
+                android:text="도움말"
+                android:textSize="30dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/bitbit"
+                    android:paddingTop="10dp"
+                    android:text="도움말 화면 표시 여부"
+                    android:textSize="20dp" />
+
+                <CheckBox
+                    android:id="@+id/Question_CheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                     />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

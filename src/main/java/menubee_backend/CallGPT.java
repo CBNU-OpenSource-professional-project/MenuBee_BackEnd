@@ -20,7 +20,7 @@ public class CallGPT extends AppCompatActivity {
     private EditText GptResult;
     private Activity GPTActivity;
 
-    static String[] result1;
+    public static String[] resultforGPT;
 
     public CallGPT(Activity activity){
         GPTActivity=activity;
@@ -58,10 +58,10 @@ public class CallGPT extends AppCompatActivity {
                 Log.d("CALL GPT EXECUTE", "onPostExecute: "+result);
                 super.onPostExecute(result);
                 if (result != null) {
-                    result1 = result.split("\n");
+                    resultforGPT = result.split("\n");
                     //저장값 확인
-                    for (int i = 0; i < result1.length; i++)
-                        System.out.println("배열 저장 값 : " + result1[i]);
+                    for (int i = 0; i < resultforGPT.length; i++)
+                        System.out.println("배열 저장 값 : " + resultforGPT[i]);
                 } else {
                     Log.d("Else CASE", "FAIELD!!!!!!!!!!!!");
                 }
