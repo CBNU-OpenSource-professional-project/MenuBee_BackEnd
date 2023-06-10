@@ -30,6 +30,7 @@ public class ViewPager2AutoScrollActivity extends AppCompatActivity {
 
         // OCR 객체 생성
         ImageToText OcrToGpt=new ImageToText(this);
+
         // OCR 시작
         OcrToGpt.callCloudVision(Camera_capture.getBitmap());
         viewPager2 = findViewById(R.id.viewPager2);
