@@ -1,11 +1,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/voice_option1"
-        android:title="Voice Option 1" />
+        android:title="한국어" />
     <item
         android:id="@+id/voice_option2"
-        android:title="Voice Option 2" />
+        android:title="영어" />
     <item
         android:id="@+id/voice_option3"
-        android:title="Voice Option 3" />
+        android:title="중국어" />
 </menu>

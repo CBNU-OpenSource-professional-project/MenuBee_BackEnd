@@ -20,7 +20,7 @@ public class TextOrder extends AppCompatActivity {
     int code;
 
     private TextToSpeech tts; // Added this line
-    public static String ttsLocale;
+    public static Locale locale;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,11 +45,11 @@ public class TextOrder extends AppCompatActivity {
         tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
-
+                locale=Setting.ttsLocale;
                 Log.d("TTS SPEED", "onInit: "+speed);
                 if (status != TextToSpeech.ERROR) {
                     tts.setSpeechRate(speed);
-                    tts.setLanguage(Locale.US);
+                    tts.setLanguage(locale);
                 }
             }
         });

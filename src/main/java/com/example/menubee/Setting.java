@@ -6,11 +6,14 @@ import android.media.AudioManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.PopupMenu;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.speech.tts.TextToSpeech;
 import java.util.Locale;
@@ -21,7 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import menubee_backend.TTS;
 
 public class Setting extends AppCompatActivity {
-    private TextView textSelectVoice;
+    private Spinner textSelectVoice;
     private TextToSpeech tts;
     private RadioGroup radioGroup;
     private SeekBar seekVolumn;
@@ -32,6 +35,7 @@ public class Setting extends AppCompatActivity {
     private RadioButton speedButton2;
     private RadioButton speedButton3;
     public static float speed;
+    public static Locale ttsLocale;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,75 +44,99 @@ public class Setting extends AppCompatActivity {
         speedButton = findViewById(R.id.radioButton);
         speedButton2 = (RadioButton) findViewById(R.id.radioButton2);
         speedButton3 = (RadioButton) findViewById(R.id.radioButton3);
-        textSelectVoice = findViewById(R.id.sound_TTS_change);
+        textSelectVoice = findViewById(R.id.sound_TTL_voice_change);
+
         tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
                 if (status != ERROR) {
                     // 언어를 선택한다.
-                    tts.setLanguage(Locale.KOREAN);
+                    tts.setLanguage(ttsLocale);
                 }
             }
         });
         radioGroup = findViewById(R.id.radioGroup);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this,
+                R.array.voice_options_array,
+                android.R.layout.simple_spinner_item
+        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        textSelectVoice.setAdapter(adapter);
+
+        // textSelectVoice 뷰에 OnItemSelectedListener 설정
+        textSelectVoice.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedVoice = parent.getItemAtPosition(position).toString();
+                handleVoiceSelection(selectedVoice); // 아이템 선택 시 처리
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
         // tts 읽기 속도 및 음성 톤 설정
         speedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                speed=0.1f;
+                speed = 0.1f;
                 tts.setPitch(1.0f);         // 음성 톤
                 tts.setSpeechRate(speed);    // 읽는 속도는 기본 설정
                 // editText에 있는 문장을 읽는다.
-                tts.speak("0.75배 설정이 완료되었습니다",TextToSpeech.QUEUE_FLUSH, null);
+                tts.speak("0.75배 설정이 완료되었습니다", TextToSpeech.QUEUE_FLUSH, null);
             }
         });
         speedButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                speed=1.0f;
+                speed = 1.0f;
                 tts.setPitch(1.0f);         // 음성 톤
                 tts.setSpeechRate(speed);    // 읽는 속도는 기본 설정
                 // editText에 있는 문장을 읽는다.
-                tts.speak("평문 설정이 완료되었습니다",TextToSpeech.QUEUE_FLUSH, null);
+                tts.speak("평문 설정이 완료되었습니다", TextToSpeech.QUEUE_FLUSH, null);
             }
         });
         speedButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                speed=2.5f;
+                speed = 2.5f;
                 tts.setPitch(0.5f);         // 음성 톤
                 tts.setSpeechRate(speed);    // 읽는 속도는 기본 설정
                 // editText에 있는 문장을 읽는다.
-                tts.speak("1.25배 설정이 완료되었습니다",TextToSpeech.QUEUE_FLUSH, null);
+                tts.speak("1.25배 설정이 완료되었습니다", TextToSpeech.QUEUE_FLUSH, null);
 
             }
         });
         setVolumnBar();
     }
 
-    public void showPopupMenu(View view) {
-        PopupMenu popupMenu = new PopupMenu(this, view);
-        popupMenu.getMenuInflater().inflate(R.menu.voice_options_menu, popupMenu.getMenu());
 
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.voice_option1:
-                        // Handle voice option 1 selection
-                        return true;
-                    case R.id.voice_option2:
-                        // Handle voice option 2 selection
-                        return true;
-                    case R.id.voice_option3:
-                        // Handle voice option 3 selection
-                        return true;
-                    default:
-                        return false;
-                }
-            }
-        });
+    public void handleVoiceSelection(String selectedVoice) {
+        switch (selectedVoice) {
+            case "한국어":
+                ttsLocale = Locale.KOREAN;
+                tts.setLanguage(ttsLocale);
+                tts.setSpeechRate(speed);
+                tts.speak("한국어로 설정되었습니다.", TextToSpeech.QUEUE_FLUSH, null);
+                break;
+            case "영어":
+                ttsLocale = Locale.ENGLISH;
+                tts.setLanguage(ttsLocale);
+                tts.setSpeechRate(speed);
+                tts.speak("Setting in English.", TextToSpeech.QUEUE_FLUSH, null);
+                break;
+            case "중국어":
+                ttsLocale = Locale.CHINESE;
+                tts.setLanguage(ttsLocale);
+                tts.setSpeechRate(speed);
+                tts.speak("设定为中文.", TextToSpeech.QUEUE_FLUSH, null);
+                break;
+        }
     }
+
     // 시스템 음량 연결
     public void setVolumnBar() {
         seekVolumn = findViewById(R.id.TTL_volum_seekBar);
@@ -135,6 +163,4 @@ public class Setting extends AppCompatActivity {
             }
         });
     }
-
-
 }

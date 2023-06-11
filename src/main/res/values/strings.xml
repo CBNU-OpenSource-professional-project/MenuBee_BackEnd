@@ -1,3 +1,7 @@
 <resources>
-
+    <string-array name="voice_options_array">
+        <item>한국어</item>
+        <item>영어</item>
+        <item>중국어</item>
+    </string-array>
 </resources>
