@@ -10,9 +10,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class AdditionalOrder extends AppCompatActivity {
+public class PayOrder extends AppCompatActivity {
 
-    AppCompatButton btnlist[] = new AppCompatButton[8];
+    AppCompatButton btnlist[] = new AppCompatButton[8];;
     AppCompatButton btnReq, btnBack;
     EditText reqText;
     CharSequence order;
@@ -20,7 +20,7 @@ public class AdditionalOrder extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_additional);
+        setContentView(R.layout.activity_payorder);
 
         btnlist[0]=(AppCompatButton) findViewById(R.id.btn1);
         btnlist[1]=(AppCompatButton) findViewById(R.id.btn2);
@@ -41,13 +41,13 @@ public class AdditionalOrder extends AppCompatActivity {
         }
 
         for(int i = 0; i < 8; i++) {
-            final int index;
-            index = i;
-            btnlist[index].setOnClickListener(new View.OnClickListener() {
+            final int index1;
+            index1 = i;
+            btnlist[index1].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     String text = reqText.getText().toString();
-                    String btnText = btnlist[index].getText().toString();
+                    String btnText = btnlist[index1].getText().toString();
                     reqText.setText(text + " " + btnText);
                 }
             });

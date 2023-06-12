@@ -11,6 +11,8 @@
         android:layout_width="138dp"
         android:layout_height="86dp"
         android:text="사용법"
+        android:textColor="#676767"
+        android:fontFamily="@font/bitbit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.365"
@@ -23,23 +25,27 @@
         android:layout_width="202dp"
         android:layout_height="67dp"
         android:text="다시보지않음"
+        android:fontFamily="@font/bitbit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.73"
+        app:layout_constraintHorizontal_bias="0.215"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.66" />
+        android:textColor="#676767"
+        app:layout_constraintVertical_bias="0.95" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/closetip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="닫기"
+        android:textColor="#676767"
+        android:fontFamily="@font/bitbit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.793"
+        app:layout_constraintHorizontal_bias="0.904"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.761" />
+        app:layout_constraintVertical_bias="0.951" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,11 +25,14 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+
 public class Cafe extends AppCompatActivity {
     ScrollView menuView;
     LinearLayout menu;
     LinearLayout orderResult;
     AppCompatButton orderbtn, addorderbtn;
+    Database database;
+
     class Result {
         LinearLayout selected = new LinearLayout(getApplicationContext());
         TextView menu = new TextView(getApplicationContext());
@@ -46,8 +49,6 @@ public class Cafe extends AppCompatActivity {
         setContentView(R.layout.cafe);
         menuView = (ScrollView) findViewById(R.id.menuView);
         orderbtn = (AppCompatButton) findViewById(R.id.orderbtn);
-        addorderbtn = (AppCompatButton) findViewById(R.id.addorderbtn);
-        menuView.setBackgroundColor(Color.parseColor("#000000"));
 
         //result 배열 예시
         String[] result1 = resultforGPT;
@@ -67,9 +68,8 @@ public class Cafe extends AppCompatActivity {
             menu.addView(tv);
         }
 
-
         Iterator<TextView> menulistIterator = menuLists.iterator();
-        while(menulistIterator.hasNext()) {
+        while (menulistIterator.hasNext()) {
             TextView tnext = menulistIterator.next();
             tnext.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -91,11 +91,11 @@ public class Cafe extends AppCompatActivity {
                     selectedLayout(result);
                     resultList.add(result);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                    layoutParams.setMargins(0,5,0,0);
+                    layoutParams.setMargins(0, 5, 0, 0);
                     result.selected.setLayoutParams(layoutParams);
                     orderResult.addView(result.selected);
 
-                    for(Result pmresult : resultList) {
+                    for (Result pmresult : resultList) {
                         pmresult.plus.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -108,11 +108,10 @@ public class Cafe extends AppCompatActivity {
                         pmresult.minus.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                if(pmresult.number == 1) {
+                                if (pmresult.number == 1) {
                                     orderResult.removeView(pmresult.selected);
                                     resultList.remove(pmresult);
-                                }
-                                else {
+                                } else {
                                     pmresult.number -= 1;
                                     String curNum = Integer.toString(pmresult.number);
                                     pmresult.num.setText(curNum);
@@ -124,15 +123,33 @@ public class Cafe extends AppCompatActivity {
             });
         }
 
+        //database = new Database(this);
+
+        //String BGcolor = database.getString("BGcolor","");
+        //String Textcolor = database.getString("Textcolor","");
+
+        //int BGcolor_int = Color.parseColor(BGcolor);
+        //int Textcolor_int = Color.parseColor(Textcolor);
+
+        // if(BGcolor.equals("")){
+        //      BGcolor_int = Color.parseColor("#FFFFFF");
+        // }
+        // if(Textcolor.equals("")) {
+        //      Textcolor_int = Color.parseColor("#000000");
+        //  }
+        int BGcolor_int = Color.parseColor("#FFFFFF");
+        int Textcolor_int = Color.parseColor("#000000");
+        changeBGColor(BGcolor_int);
+        changeTextColor(Textcolor_int);
+
         orderbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Iterator<Result> iterator = resultList.iterator();
                 StringBuilder ordermsg = new StringBuilder("");
-                if(resultList.isEmpty()) {
+                if (resultList.isEmpty()) {
                     Toast.makeText(Cafe.this, "주문할 메뉴를 선택하세요", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     while (iterator.hasNext()) {
                         Result next = iterator.next();
                         if (!iterator.hasNext()) {
@@ -140,51 +157,20 @@ public class Cafe extends AppCompatActivity {
                             ordermsg.append(" ");
                             ordermsg.append(next.num.getText().toString());
                             ordermsg.append("개 주세요");
-                        }
-                        else {
+                        } else {
                             ordermsg.append(next.menu.getText().toString());
                             ordermsg.append(" ");
                             ordermsg.append(next.num.getText().toString());
                             ordermsg.append("개, ");
                         }
                     }
-                    Intent intent = new Intent(getApplicationContext(), TextOrder.class);
+                    Intent intent = new Intent(getApplicationContext(), Choice_mode.class);
                     intent.putExtra("order", (CharSequence) ordermsg);
-                    startActivityForResult(intent, 0);
+                    startActivity(intent);
                 }
             }
         });
 
-        addorderbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Iterator<Result> iterator = resultList.iterator();
-                StringBuilder ordermsg = new StringBuilder("");
-                if(resultList.isEmpty()) {
-                    Toast.makeText(Cafe.this, "주문할 메뉴를 선택하세요", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    while (iterator.hasNext()) {
-                        Result next = iterator.next();
-                        if (!iterator.hasNext()) {
-                            ordermsg.append(next.menu.getText().toString());
-                            ordermsg.append(" ");
-                            ordermsg.append(next.num.getText().toString());
-                            ordermsg.append("개 주세요");
-                        }
-                        else {
-                            ordermsg.append(next.menu.getText().toString());
-                            ordermsg.append(" ");
-                            ordermsg.append(next.num.getText().toString());
-                            ordermsg.append("개, ");
-                        }
-                    }
-                    Intent intent = new Intent(getApplicationContext(), AdditionalOrder.class);
-                    intent.putExtra("order", (CharSequence) ordermsg);
-                    startActivityForResult(intent, 0);
-                }
-            }
-        });
     }
 
     @Override
@@ -232,5 +218,17 @@ public class Cafe extends AppCompatActivity {
         result.selected.addView(result.num, numparams);
         result.selected.addView(result.plus, plusparams);
         result.selected.addView(result.minus, minusparams);
+    }
+
+    public void changeBGColor(int color) {
+        ScrollView menuView = (ScrollView) findViewById(R.id.menuView);
+        menuView.setBackgroundColor(color);
+    }
+
+    public void changeTextColor(int color) {
+        TextView menuHead = (TextView) findViewById(R.id.menuHead);
+        View menuLine = (View) findViewById(R.id.menuLine);
+        menuHead.setTextColor(color);
+        menuLine.setBackgroundColor(color);
     }
 }

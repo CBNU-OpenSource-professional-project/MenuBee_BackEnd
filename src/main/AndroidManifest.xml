@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Menubee">
         <activity
+            android:name=".popupcolor"
+            android:exported="false" />
+        <activity
             android:name=".Setting"
             android:exported="false" />
         <activity
@@ -52,8 +55,14 @@
             android:name=".Camera_capture"
             android:label="Camera_capture" />
         <activity
+            android:name=".PayOrder"
+            android:label="PayOrder" />
+        <activity
             android:name=".Cafe"
             android:label="Cafe" />
+        <activity
+            android:name=".AdditionalOrder"
+            android:label="AdditionalOrder" />
         <activity android:name="ViewPager2AutoScrollActivity"
             android:label="ViewPager2AutoScrollActivity"
             />

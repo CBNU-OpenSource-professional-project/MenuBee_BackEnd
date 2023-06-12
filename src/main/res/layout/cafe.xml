@@ -68,31 +68,20 @@
             android:layout_gravity="center"
             android:layout_marginEnd="20dp"
             android:textColor="@color/black"
-            android:textSize="23sp"
+            android:textSize="25sp"
             android:fontFamily="@font/bitbit"
             android:text="주문 내역"/>
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/orderbtn"
-            android:layout_width="50dp"
-            android:layout_height="20dp"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
             android:layout_marginStart="20dp"
             android:paddingTop="2dp"
             android:layout_gravity="center"
             android:background="@drawable/ordermsg"
             android:fontFamily="@font/bitbit"
-            android:textSize="15sp"
-            android:text="주문" />
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/addorderbtn"
-                android:layout_width="80dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="20dp"
-                android:paddingTop="2dp"
-                android:layout_gravity="center"
-                android:background="@drawable/ordermsg"
-                android:fontFamily="@font/bitbit"
-                android:textSize="15sp"
-                android:text="추가 주문" />
+            android:textSize="20sp"
+            android:text="선택 완료" />
         </LinearLayout>
 
         <ScrollView

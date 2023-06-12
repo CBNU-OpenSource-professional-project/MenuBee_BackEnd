@@ -2,14 +2,20 @@ package com.example.menubee;
 
 import static android.speech.tts.TextToSpeech.ERROR;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.media.AudioManager;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.PopupMenu;
+import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -20,6 +26,9 @@ import java.util.Locale;
 
 import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+
+import menubee_backend.TTS;
 
 import menubee_backend.TTS;
 
@@ -37,6 +46,8 @@ public class Setting extends AppCompatActivity {
     public static float speed;
     public static Locale ttsLocale;
 
+    Database database;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +57,66 @@ public class Setting extends AppCompatActivity {
         speedButton3 = (RadioButton) findViewById(R.id.radioButton3);
         textSelectVoice = findViewById(R.id.sound_TTL_voice_change);
 
+        TextView changeBGColor;
+        TextView changeTextColor;
+
+        String BGcolor;
+        String Textcolor;
+        database = new Database(this);
+
+        boolean BGtoken = database.getBoolean("BGtoken",false);
+        boolean Texttoken = database.getBoolean("Texttoken",false);
+
+
+        if (BGtoken && !Texttoken)
+        {
+            String temp = database.getString("colorval","");
+
+            database.storeString("BGcolor",temp);
+
+            changeBGColor = findViewById(R.id.displayColor);
+
+            int TextcolorInt = Color.parseColor(temp);
+
+            changeBGColor.setBackgroundColor(TextcolorInt);
+        }
+        else if(!BGtoken && Texttoken)
+        {
+            String temp = database.getString("colorval","");
+
+            database.storeString("Textcolor",temp);
+
+            changeTextColor = findViewById(R.id.Menu_Text_Color);
+
+            int TextcolorInt = Color.parseColor(temp);
+
+            changeTextColor.setBackgroundColor(TextcolorInt);
+        }
+
+
+        AppCompatButton setBGcolor = findViewById(R.id.colorPicker_button);
+
+        AppCompatButton showPopupButton = findViewById(R.id.colorPicker_button);
+        setBGcolor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                database.storeBoolean("BGorText",true);
+                Intent intent = new Intent(getApplicationContext(),selectcolor.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        AppCompatButton setTextcolor = findViewById(R.id.colorPicker_button2);
+        setTextcolor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                database.storeBoolean("BGorText",false);
+                Intent intent = new Intent(getApplicationContext(),selectcolor.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
@@ -55,6 +126,7 @@ public class Setting extends AppCompatActivity {
                 }
             }
         });
+
         radioGroup = findViewById(R.id.radioGroup);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(

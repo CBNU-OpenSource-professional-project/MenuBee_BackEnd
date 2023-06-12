@@ -58,5 +58,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation 'com.google.api-client:google-api-client-android:1.30.9'
     implementation 'com.google.api-client:google-api-client-gson:1.30.9'
+    implementation 'com.github.skydoves:colorpickerview:2.2.4'
 
 }
