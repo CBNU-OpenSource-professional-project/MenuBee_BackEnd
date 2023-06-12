@@ -3,6 +3,7 @@ package com.example.menubee;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.speech.tts.TextToSpeech;
@@ -19,7 +20,7 @@ public class TextOrder extends AppCompatActivity {
     int code;
 
     private TextToSpeech tts; // Added this line
-
+    public static Locale locale;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +32,7 @@ public class TextOrder extends AppCompatActivity {
         String reqText = intent.getStringExtra("req");
         CharSequence order = intent.getCharSequenceExtra("order");
         orderText = (TextView) findViewById(R.id.orderText);
+        float speed=Setting.speed;
 
         if(reqText != null) {
             orderText.setText(reqText);
@@ -43,8 +45,11 @@ public class TextOrder extends AppCompatActivity {
         tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
+                locale=Setting.ttsLocale;
+                Log.d("TTS SPEED", "onInit: "+speed);
                 if (status != TextToSpeech.ERROR) {
-                    tts.setLanguage(Locale.US);
+                    tts.setSpeechRate(speed);
+                    tts.setLanguage(locale);
                 }
             }
         });
@@ -57,6 +62,7 @@ public class TextOrder extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String text = orderText.getText().toString();
+
                 tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, null); // Edited this line
             }
         });

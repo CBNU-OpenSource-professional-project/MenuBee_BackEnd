@@ -28,7 +28,6 @@ public class Camera_capture extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera_capture);
         getImage = new GetImage(this);
-        getImage.startGalleryChooser();
 
         // 선택 버튼 클릭시
         select_btn = findViewById(R.id.selectimg);

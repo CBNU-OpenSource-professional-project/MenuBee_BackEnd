@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
 
     <application
         android:name=".Global"
@@ -15,6 +17,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Menubee">
+        <activity
+            android:name=".popupcolor"
+            android:exported="false" />
         <activity
             android:name=".Setting"
             android:exported="false" />
@@ -50,8 +55,14 @@
             android:name=".Camera_capture"
             android:label="Camera_capture" />
         <activity
+            android:name=".PayOrder"
+            android:label="PayOrder" />
+        <activity
             android:name=".Cafe"
             android:label="Cafe" />
+        <activity
+            android:name=".AdditionalOrder"
+            android:label="AdditionalOrder" />
         <activity android:name="ViewPager2AutoScrollActivity"
             android:label="ViewPager2AutoScrollActivity"
             />

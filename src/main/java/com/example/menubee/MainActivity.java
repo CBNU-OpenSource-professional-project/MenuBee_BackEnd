@@ -26,18 +26,19 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    private boolean tip_value;
+    boolean viewtip;
     AppCompatButton start_btn;
     AppCompatButton setting_btn;
     FirebaseFirestore db=FirebaseFirestore.getInstance();
-
+    Database database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tip_value = ((Global) getApplicationContext()).getTip_value();
+        database = new Database(this);
+        viewtip = database.getBoolean("viewtip", true);
 
         start_btn = findViewById(R.id.start_btn);
         start_btn.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnstartclicked(View v) {
-        if (tip_value) {
+        if (viewtip) {
             Intent intent = new Intent(getApplicationContext(),Tip.class);
             startActivity(intent);
         } else {

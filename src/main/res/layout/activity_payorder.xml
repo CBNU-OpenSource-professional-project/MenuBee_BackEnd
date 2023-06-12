@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@color/white"
     android:gravity="center_horizontal"
-    tools:context=".AdditionalOrder">
+    tools:context=".PayOrder">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/line1"
@@ -29,7 +29,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn1"
-            android:text="물 한 잔 주세요."
+            android:text="카드결제 할께요."
             android:layout_width="130dp"
             android:layout_height="73dp"
             android:layout_marginTop="32dp"
@@ -55,7 +55,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn2"
-            android:text="냅킨 좀 주세요."
+            android:text="현금결제 할께요."
             android:textSize="23sp"
             android:textColor="#676767"
             android:fontFamily="@font/bitbit"
@@ -89,7 +89,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn3"
-            android:text="화장실은 어디 있나요?"
+            android:text="영수증 버려주세요."
             android:textSize="23sp"
             android:textColor="#676767"
             android:fontFamily="@font/bitbit"
@@ -97,7 +97,7 @@
             android:layout_height="73dp"
             android:layout_marginTop="32dp"
             android:background="#00FFFFFF"
-            app:layout_constraintHorizontal_bias="0.000"
+            app:layout_constraintHorizontal_bias="0.030"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="@id/pol4"
             app:layout_constraintTop_toTopOf="parent"
@@ -114,22 +114,22 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn4"
-            android:text="컵 하나 더 주세요."
+            android:text="현금 영수증 주세요."
             android:textSize="23sp"
             android:textColor="#676767"
             android:fontFamily="@font/bitbit"
-            android:layout_width="125dp"
+            android:layout_width="130dp"
             android:layout_height="73dp"
             android:layout_marginTop="32dp"
             android:background="#00FFFFFF"
-            app:layout_constraintHorizontal_bias="0.490"
+            app:layout_constraintHorizontal_bias="0.500"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="SpeakableTextPresentCheck"/>
 
         <ImageView
-            android:id="@+id/pol5"
+            android:id="@+id/pol10"
             android:layout_width="140dp"
             android:layout_height="140dp"
             app:layout_constraintHorizontal_bias="1.000"
@@ -140,7 +140,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn5"
-            android:text="바닥에 쏟았어요."
+            android:text="쿠폰 찍어주세요."
             android:textSize="23sp"
             android:textColor="#676767"
             android:fontFamily="@font/bitbit"
@@ -148,7 +148,7 @@
             android:layout_height="73dp"
             android:layout_marginTop="32dp"
             android:background="#00FFFFFF"
-            app:layout_constraintHorizontal_bias="0.980"
+            app:layout_constraintHorizontal_bias="0.970"
             app:layout_constraintLeft_toLeftOf="@id/pol4"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -175,7 +175,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn6"
-            android:text="메뉴가 잘못 나왔어요."
+            android:text="테이크 아웃 할께요."
             android:textSize="23sp"
             android:textColor="#676767"
             android:fontFamily="@font/bitbit"
@@ -201,7 +201,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn7"
-            android:text="에어컨 온도 좀 높여주세요."
+            android:text="상품권으로 계산할께요."
             android:textSize="23sp"
             android:textColor="#676767"
             android:fontFamily="@font/bitbit"
@@ -234,7 +234,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn8"
-            android:text="핸드폰 충전 되나요?"
+            android:text="음료에 카페인 들어가나요?"
             android:layout_width="130dp"
             android:layout_height="73dp"
             android:layout_marginTop="32dp"
@@ -279,7 +279,7 @@
             android:textSize="18sp"
             android:textColor="#676767"
             android:fontFamily="@font/bitbit"
-        />
+            />
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnBack"
             android:background="@drawable/order"
